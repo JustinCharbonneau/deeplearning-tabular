@@ -1,4 +1,4 @@
-name: fastai
+name: dl-tabular
 channels:
 - conda-forge
 dependencies:
