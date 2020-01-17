@@ -1,5 +1,6 @@
-# deeplearning-tabular
+# Deep Learning for Tabular Data 📊
 
+The goal of this repo is to explore tabular data (different sources from the video) using the library fastai.
 
 **Conda environment**
 
