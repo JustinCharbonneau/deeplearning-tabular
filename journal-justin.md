@@ -1,6 +1,6 @@
-# Journal
-__Author:__ Justin Charbonneau. 
-__Keywords:__ XGBoost ● Hyperopt ● Backtesting
+# Journal  
+__Author:__ Justin Charbonneau  
+__Keywords:__ XGBoost ● Hyperopt ● Backtesting. 
 
 
 ## Day 1
