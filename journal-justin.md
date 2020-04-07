@@ -1,11 +1,16 @@
-# Day 1
+# Journal
+Justin Charbonneau
+@XGBoost @Hyperopt @Backtesting
+***
 
+## Day 1
+***
 - [x] Ecouter tutoriels youtube sur @adaboost, @gradientboost and @xgboost.
 - [x] Creation d'un environment yml pour le projet
 - [x] Passer au travers du notebook d'exploration
 
-# Day 2
-
+## Day 2
+***
 - [x] Regarder aux nombres de magasins par journee. Si on predit a chaque jour pour tous les magasins, alors on peut utiliser un split temporelle pour du backtesting
 - [x] Determiner methodologie et faire le diagrame *Figure 1*
 **Figure 1:** Methodologie de backtesting. Lors de l'otimization des hyperparametre, je skip les premieres iterations et execute l'entraintement
@@ -16,8 +21,8 @@ et validation pour les trois dernier folds. Sinon, ca prendrais beaucoup trop de
 et validation pour les trois dernier folds. Sinon, ca prendrais beaucoup trop de temps.
 ![image](https://user-images.githubusercontent.com/25487881/78314966-a32d8600-7529-11ea-9560-b80d5c1e5435.png)
 
-# Day 3
-
+## Day 3
+***
 - [x] Lire sur differentes methodes de recherche d'hyperparametre (grid search, random search, bayesian optimisation). Lire sur Hyperopt
 qui a ete utiliser dans des projets au CRIM. Il semblait etre bien fait et simple a utiliser. -> [Hyperopt](https://github.com/hyperopt/hyperopt)
 - [x] Rouler XGBoost avec Hyperopt 
@@ -32,7 +37,7 @@ d'apprendre PyTorch
 **Figure 2:** Architecture pour deux colones avec valeurs categoriques
 ![image](https://user-images.githubusercontent.com/25487881/78181963-42bc1d00-7433-11ea-8236-6dd6f64e247a.png)
 
-# Day 4
+## Day 4
 
 - [x] Rajouter une classification pour les donnees nulls en tant que #NAN#
 - [x] Trouver pourquoi mes resultats dans ma recherche d'hyperparametre n'est pas pareil apres quand j'entraine le modele avec les meilleurs 
@@ -50,7 +55,7 @@ Notes sur Hyperopt:
 **Figure 3:** Valeurs recherche lors de la recherche d'hyperparametre pour l'experience 002. Comme mentioner dans la note, les valeurs pour `max_depth` ne sont pas les vrais valeurs, mais l'index qui map {0:5, 1:6, 2:7, 3:8, 4:9}
 ![image](https://user-images.githubusercontent.com/25487881/78713644-98d40900-78e8-11ea-9c54-1e961d97c11b.png)
 
-# Day 5
+## Day 5
 
 - [ ] Faire l'algo [@gradientboost](https://www.youtube.com/watch?v=2xudPOBz-vs&t=281s) a la main pour me familiariser.
 - [ ] Re-rouler les resultats et soummettres les predictions sur Kaggle maintenant que les hyperparametres ont ete trouver.
