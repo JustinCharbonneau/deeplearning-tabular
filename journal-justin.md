@@ -1,16 +1,16 @@
 # Journal
-Justin Charbonneau
-@XGBoost @Hyperopt @Backtesting
-***
+__Author:__ Justin Charbonneau
+__Keywords:__ XGBoost ● Hyperopt ● Backtesting
+
 
 ## Day 1
-***
+
 - [x] Ecouter tutoriels youtube sur @adaboost, @gradientboost and @xgboost.
 - [x] Creation d'un environment yml pour le projet
 - [x] Passer au travers du notebook d'exploration
 
 ## Day 2
-***
+
 - [x] Regarder aux nombres de magasins par journee. Si on predit a chaque jour pour tous les magasins, alors on peut utiliser un split temporelle pour du backtesting
 - [x] Determiner methodologie et faire le diagrame *Figure 1*
 **Figure 1:** Methodologie de backtesting. Lors de l'otimization des hyperparametre, je skip les premieres iterations et execute l'entraintement
@@ -22,7 +22,7 @@ et validation pour les trois dernier folds. Sinon, ca prendrais beaucoup trop de
 ![image](https://user-images.githubusercontent.com/25487881/78314966-a32d8600-7529-11ea-9560-b80d5c1e5435.png)
 
 ## Day 3
-***
+
 - [x] Lire sur differentes methodes de recherche d'hyperparametre (grid search, random search, bayesian optimisation). Lire sur Hyperopt
 qui a ete utiliser dans des projets au CRIM. Il semblait etre bien fait et simple a utiliser. -> [Hyperopt](https://github.com/hyperopt/hyperopt)
 - [x] Rouler XGBoost avec Hyperopt 
