@@ -42,12 +42,13 @@ learning rate de 10 vs 100 auraient. Dans ce cas, il y avais un plateau au debut
 puisse continuer a apprendre.  Ceci avait un effet negatif dans la recherche d'hyperparametre pour le 'eta', car si je met un early stopping apres
 10 iterations, l'algo restait pogner dans le plateau et arretait quand le 'eta' etait petit. Donc, apres la recherche, ca disait qu'un 'eta' de 
 0.2 etait le meilleure. Ceci allait allencontre de la majorite des notebooks sur kaggle qui utilisaient des learning rate d'environ 0.025.
+- [x] Rouler la recherche d'hyperparametres pendant la nuit. 
 
 Notes sur Hyperopt:
 > - hp.choice retourne un index. Il est possible d'utiliser la fonction `space_eval` de hyperopt pour faire le switch. (Ex: `best_hyperparams = space_eval(space, best_hyperparams)`
 
-- [x] Rouler la recherche d'hyperparametres pendant la nuit. 
-
+**Figure 3:** Valeurs recherche lors de la recherche d'hyperparametre pour l'experience 002. Comme mentioner dans la note, les valeurs pour `max_depth` ne sont pas les vrais valeurs, mais l'index qui map {0:5, 1:6, 2:7, 3:8, 4:9}
+![image](https://user-images.githubusercontent.com/25487881/78713644-98d40900-78e8-11ea-9c54-1e961d97c11b.png)
 
 # Day 5
 
