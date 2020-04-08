@@ -32,6 +32,15 @@ def optimize():
     best = fmin(score, space, algo=tpe.suggest, trials=trials, max_evals=100)
     
     return best
+    
+def score(params):
+    list_of_scores = []
+    Do Backtesting with TimeSeriesSplit
+        1) Split data according to index returned by TimeSeriesSplit
+        2) Train XGBoost with params and record RMSPE score
+        list_of_scores.append(score)
+        
+    return(np.mean(score))
 ```  
 
 - [x] Rouler XGBoost avec Hyperopt 
