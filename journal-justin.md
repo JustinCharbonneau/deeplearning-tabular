@@ -58,6 +58,7 @@ Notes sur Hyperopt:
 ## Jour 5
 
 - [x] Soumission d'une Pull Request 
+- [ ] Realiser que clean_train_valid peut etre combiner avec clean_internal_test pour avoir un plus gros dataset. Ainsi, faut re-reouler le tout.
 - [ ] Faire l'algo [@gradientboost](https://www.youtube.com/watch?v=2xudPOBz-vs&t=281s) a la main pour me familiariser.
 - [ ] Re-rouler les resultats et soummettres les predictions sur Kaggle maintenant que les hyperparametres ont ete trouver.
 
