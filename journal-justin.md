@@ -21,8 +21,9 @@ __Mots Cles:__ XGBoost, Hyperopt, Backtesting, Entity Embeddings, Target Encodin
 
 ## Jour 3
 
-- [x] Lire sur différentes methodes de recherche d'hyperparametre (grid search, random search, bayesian optimisation). Lire sur Hyperopt qui a été utilisé dans des projets au CRIM. Il semblait être bien fait et simple à utiliser. -> [Hyperopt](https://github.com/hyperopt/hyperopt). En bref, pour utiliser Hyperopt, il faut définir deux fonctions. 
+- [x] Lire sur différentes methodes de recherche d'hyperparametre (grid search, random search, bayesian optimisation). Lire sur Hyperopt qui a été utilisé dans des projets au CRIM. Il semblait être bien fait et simple à utiliser. -> [Hyperopt](https://github.com/hyperopt/hyperopt). En bref, pour utiliser Hyperopt, il faut définir deux fonctions. Voir la figure 3 dans le jour 4 pour une illustration des résultats.
 
+La focntion 'optimize' défini l'espace de recherche. On utilise fmin qui cherche à minimiser le score puis on a spécifier l'algorithme de recherche `tpe.suggest`. Finalement, le nombre d'évaluations est de 100. La variable trials est appelé afin de sauver les expériences et résultats de chaque évaluation. 
 ```python
 def optimize():
     space = {'eta': hp.quniform('eta', 0.01, 0.3, 0.001),
