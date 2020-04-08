@@ -2,34 +2,38 @@
 __Auteur:__ Justin Charbonneau  
 __Mots Cles:__ XGBoost, Hyperopt, Backtesting, Entity Embeddings, Target Encoding, Regression
 
-
 ## Jour 1
 
 **Apprentissage:**
 
-- [x] Ecouter tutoriels youtube sur @adaboost, @gradientboost and @xgboost. Voir Figure 1.
-- [x] Creation d'un environment yml pour le projet
-- [x] Passer au travers du notebook d'exploration
-
-**Figure 1:** Algorithme de gradient boost. D'abord, à l'étape (1) on veut trouver la valeur predictive p qui minimiserais la loss. On peut le faire avec gradient descent,  mais aussi on peut le faire en isolant la valeur p et prendre la somation des valeurs dans la differenciel de la loss par respect a la valeur p. Par consequent, on se retrouve avec la valeur moyenne de la variable cible. Ca sera notre premier "leaf". Ensuite, on y va iterativement en créant des abres (petit m) jusqu'à ce qu'on cree M arbres. [src](https://statweb.stanford.edu/~jhf/ftp/trebst.pdf)
-![image](https://user-images.githubusercontent.com/25487881/78798475-09c9fe00-7987-11ea-9156-bba5f6eadb05.png)
+- [x] Ecouter tutoriels youtube sur @adaboost, @gradientboost and @xgboost.
+- [x] Creation d'un environment yml pour le projet.
+- [x] Passer au travers du notebook d'exploration fait par FastAI. On realise qu'il y a des valeurs categoriques et numeriques, dont certain ont des valeurs nuls.
 
 ## Jour 2
 
-- [x] Regarder aux nombres de magasins par journee. Si on predit a chaque jour pour tous les magasins, alors on peut utiliser un split temporelle pour du backtesting
-- [x] Determiner methodologie et faire le diagrame *Figure 1*
-**Figure 1:** Methodologie de backtesting. Lors de l'otimization des hyperparametre, je skip les premieres iterations et execute l'entraintement
-et validation pour les trois dernier folds. Sinon, ca prendrais beaucoup trop de temps.
+- [x] Regarder aux nombres de magasins par journee. Si on predit a chaque jour pour tous les magasins, alors on peut utiliser un split temporelle pour du backtesting. Ceci est fait avec la fonction `TimeSeriesSplit` de sklearn.
+- [x] Determiner methodologie et faire le diagrame. Voir figure 1.
 - [x] On roule XGBoost 
 
-**Figure 1:** Methodologie de backtesting. Lors de l'otimization des hyperparametre, je skip les premieres iterations et execute l'entraintement
-et validation pour les trois dernier folds. Sinon, ca prendrais beaucoup trop de temps.
+**Figure 1:** Methodologie de backtesting. Lors de l'otimization des hyperparametre, je skip les premieres iterations et execute l'entraintement et validation pour les trois dernier folds. Sinon, ca prendrais beaucoup trop de temps.
 ![image](https://user-images.githubusercontent.com/25487881/78314966-a32d8600-7529-11ea-9560-b80d5c1e5435.png)
 
 ## Jour 3
 
-- [x] Lire sur differentes methodes de recherche d'hyperparametre (grid search, random search, bayesian optimisation). Lire sur Hyperopt
-qui a ete utiliser dans des projets au CRIM. Il semblait etre bien fait et simple a utiliser. -> [Hyperopt](https://github.com/hyperopt/hyperopt)
+- [x] Lire sur differentes methodes de recherche d'hyperparametre (grid search, random search, bayesian optimisation). Lire sur Hyperopt qui a ete utiliser dans des projets au CRIM. Il semblait etre bien fait et simple a utiliser. -> [Hyperopt](https://github.com/hyperopt/hyperopt). En bref, pour utiliser Hyperopt, il nous faut definir deux fonctions. 
+
+```python
+def optimize():
+    space = {'eta': hp.quniform('eta', 0.01, 0.3, 0.001),
+             'max_depth':  hp.choice('max_depth', np.arange(5, 10, dtype=int)),
+             'gamma': hp.quniform('gamma', 0, 5, 0.5)}
+             
+    best = fmin(score, space, algo=tpe.suggest, trials=trials, max_evals=100)
+    
+    return best
+```  
+
 - [x] Rouler XGBoost avec Hyperopt 
 - [x] Lire sur le papier originale [Entity Embeddings](https://arxiv.org/pdf/1604.06737.pdf)
 - [x] Trouver du code en Pytorch pour la creation des EE. Ce blog etait bon! -> [blog post](https://yashuseth.blog/2018/07/22/pytorch-neural-network-for-tabular-data-with-categorical-embeddings/)
