@@ -20,8 +20,8 @@ __Mots Cles:__ XGBoost, Hyperopt, Backtesting, Entity Embeddings, Target Encodin
 **Figure 1:** Méthodologie de 'backtesting'. Lors de l'optimization des hyperparamètres, je saute les premières itérations et exécute l'entraînement et validation pour les trois derniers 'folds'. Sinon, ça prendrait beaucoup trop de temps.
 ![image](https://user-images.githubusercontent.com/25487881/78314966-a32d8600-7529-11ea-9560-b80d5c1e5435.png)
 
-**Figure 2:** Définir la fonction de la loss (RMSPE)
-Source: [Chenglong Chen](https://www.kaggle.com/c/rossmann-store-sales/discussion/16794)
+**Figure 2:** Définir la fonction de la loss (RMSPE)  
+Source: [Chenglong Chen](https://www.kaggle.com/c/rossmann-store-sales/discussion/16794)  
 ```python
 def ToWeight(y):
     w = np.zeros(y.shape, dtype=float)
