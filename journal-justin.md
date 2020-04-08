@@ -14,10 +14,35 @@ __Mots Cles:__ XGBoost, Hyperopt, Backtesting, Entity Embeddings, Target Encodin
 
 - [x] Regarder au nombre de magasins par journée. Si on prédit à chaque jour pour tous les magasins, alors on peut utiliser un split temporel pour du 'backtesting'. Ceci est fait avec la fonction `TimeSeriesSplit` de sklearn.
 - [x] Déterminer méthodologie et faire le diagramme. Voir figure 1.
+- [x] La competition de Rossman sur Kaggle demande l'utilisation de la 'Root Mean Squared Percentage Error' (RMSPE). L'algorihtme XGBoost ne vient pas avec cette loss pré-défini, alors il faut la spécifier. Pour ce faire, j'ai trouver une personne qui a trouver comment le faire dans le forum: [Chenglong Chen](https://www.kaggle.com/c/rossmann-store-sales/discussion/16794). Voir Figure 2.
 - [x] On roule XGBoost 
 
 **Figure 1:** Méthodologie de 'backtesting'. Lors de l'optimization des hyperparamètres, je saute les premières itérations et exécute l'entraînement et validation pour les trois derniers 'folds'. Sinon, ça prendrait beaucoup trop de temps.
 ![image](https://user-images.githubusercontent.com/25487881/78314966-a32d8600-7529-11ea-9560-b80d5c1e5435.png)
+
+**Figure 2:** Définir la fonction de la loss (RMSPE)
+```python
+def ToWeight(y):
+    w = np.zeros(y.shape, dtype=float)
+    ind = y != 0
+    w[ind] = 1./(y[ind]**2)
+    return w
+
+def rmspe(yhat, y):
+    y = np.exp(y) - 1
+    yhat = np.exp(yhat) - 1
+    w = ToWeight(y)
+    rmspe = np.sqrt(np.mean( w * (y - yhat)**2 ))
+    return rmspe
+
+def rmspe_xg(yhat, y):
+    y = y.get_label()
+    y = np.exp(y) - 1
+    yhat = np.exp(yhat) - 1
+    w = ToWeight(y)
+    rmspe = np.sqrt(np.mean(w * (y - yhat)**2))
+    return "rmspe", rmspe
+```
 
 ## Jour 3
 
@@ -56,7 +81,7 @@ best_hyperparams = optimize()
 - [x] Adapter le code pour ne pas qu'il traite les donnes numeriques, seulement categorique. Pas necessaire, mais ca me permet d'apprendre PyTorch
 - [x] Faire une fonction qui va chercher les poids (embeddings) respectifs et remplacer les valeurs catégoriques par les embeddings
 
-**Figure 2:** Architecture pour deux colones avec valeurs categoriques
+**Figure 3:** Architecture pour deux colones avec valeurs categoriques
 ![image](https://user-images.githubusercontent.com/25487881/78181963-42bc1d00-7433-11ea-8236-6dd6f64e247a.png)
 
 ## Jour 4
@@ -69,7 +94,7 @@ best_hyperparams = optimize()
 Notes sur Hyperopt:
 > - hp.choice retourne un index. Il est possible d'utiliser la fonction `space_eval` de hyperopt pour faire le switch. (Ex: `best_hyperparams = space_eval(space, best_hyperparams)`
 
-**Figure 3:** Valeurs recherchées lors de la recherche d'hyperparamètre pour l'expérience 002. Comme mentioné, les valeurs pour `max_depth` ne sont pas les vraies valeurs, mais l'index qui map {0:5, 1:6, 2:7, 3:8, 4:9}
+**Figure 4:** Valeurs recherchées lors de la recherche d'hyperparamètre pour l'expérience 002. Comme mentioné, les valeurs pour `max_depth` ne sont pas les vraies valeurs, mais l'index qui map {0:5, 1:6, 2:7, 3:8, 4:9}
 ![image](https://user-images.githubusercontent.com/25487881/78713644-98d40900-78e8-11ea-9c54-1e961d97c11b.png)
 
 ## Jour 5
