@@ -6,16 +6,23 @@ __Mots Cles:__ XGBoost, Hyperopt, Backtesting, Entity Embeddings, Target Encodin
 
 **Apprentissage:**
 
-- [x] Ecouter tutoriels youtube sur @adaboost, @gradientboost and @xgboost.
+- [x] Lecture du papier [xgboost](https://arxiv.org/pdf/1603.02754.pdf)
+- [x] Écouter tutoriels youtube sur adaboost, gradientboost et xgboost.
 - [x] Création d'un environement yml pour le projet.
-- [x] Passer au travers du notebook d'exploration fait par FastAI. On realise qu'il y a des valeurs catégoriques et numériques, dont certains ont des valeurs nulles.
+- [x] Prise de connaissance des notebooks de préparation de données Rossman (cours de fastai): On réalise qu'il y a des valeurs catégoriques et numériques, dont certains ont des valeurs nulles.
 
 ## Jour 2
 
 - [x] Regarder au nombre de magasins par journée. Si on prédit à chaque jour pour tous les magasins, alors on peut utiliser un split temporel pour du 'backtesting'. Ceci est fait avec la fonction `TimeSeriesSplit` de sklearn.
 - [x] Déterminer méthodologie et faire le diagramme. Voir figure 1.
 - [x] La competition de Rossman sur Kaggle demande l'utilisation de la 'Root Mean Squared Percentage Error' (RMSPE). L'algorihtme XGBoost ne vient pas avec cette loss pré-défini, alors il faut la spécifier. Pour ce faire, j'ai trouver une personne qui a trouver comment le faire dans le forum: [Chenglong Chen](https://www.kaggle.com/c/rossmann-store-sales/discussion/16794). Voir Figure 2.
-- [x] On roule XGBoost 
+- [x] On roule XGBoost. Une expérience intéressante pour XGBoost est l'utilisation de différente méthode pour la création des arbres. Trois différents 'tree_method' ont été exploré pour 100 itérations ou 'boosts'. On remarque une très grande amélioration en vitesse avec l'utilisation du 'tree_method' 'hist' sans aucune perte de pouvoir de prédiction. Voici une comparaison des résultats obtenues:
+
+| Tree Method | Training Time | Eval RMSPE |
+|-------------|---------------|------------|
+| Auto        | 1min 32s      | 0.16627    |
+| Hist        | 25.3 s        | 0.16687    |
+| GPU Hist    | 5.12 s        | 0.16687    |
 
 **Figure 1:** Méthodologie de 'backtesting'. Lors de l'optimization des hyperparamètres, je saute les premières itérations et exécute l'entraînement et validation pour les trois derniers 'folds'. Sinon, ça prendrait beaucoup trop de temps.
 ![image](https://user-images.githubusercontent.com/25487881/78314966-a32d8600-7529-11ea-9560-b80d5c1e5435.png)
