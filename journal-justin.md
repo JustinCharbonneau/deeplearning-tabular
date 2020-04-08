@@ -5,9 +5,14 @@ __Mots Cles:__ XGBoost, Hyperopt, Backtesting, Entity Embeddings, Target Encodin
 
 ## Jour 1
 
-- [x] Ecouter tutoriels youtube sur @adaboost, @gradientboost and @xgboost.
+**Apprentissage:**
+
+- [x] Ecouter tutoriels youtube sur @adaboost, @gradientboost and @xgboost. Voir Figure 1.
 - [x] Creation d'un environment yml pour le projet
 - [x] Passer au travers du notebook d'exploration
+
+**Figure 1:** Algorithme de gradient boost. D'abord, à l'étape (1) on veut trouver la valeur predictive p qui minimiserais la loss. On peut le faire avec gradient descent,  mais aussi on peut le faire en isolant la valeur p et prendre la somation des valeurs dans la differenciel de la loss par respect a la valeur p. Par consequent, on se retrouve avec la valeur moyenne de la variable cible. Ca sera notre premier "leaf". Ensuite, on y va iterativement en créant des abres (petit m) jusqu'à ce qu'on cree M arbres. [src](https://statweb.stanford.edu/~jhf/ftp/trebst.pdf)
+![image](https://user-images.githubusercontent.com/25487881/78798475-09c9fe00-7987-11ea-9156-bba5f6eadb05.png)
 
 ## Jour 2
 
